@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMS Portfolio</title>
+    <link rel="icon" href="images/do.jpg" type="image/icon">
+
+    <!-- box icon -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+
+    <!-- custom css -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --bg-color: #1f242d;
+    --second-bg-color: #323946;
+    --text-color: #fff;
+    --main-color: #0ef ;  
+    /* */
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body{
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+section{
+    background-color: var(--bg-color);
+    padding: 10rem 9% 2rem;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.header.sticky {
+    border-bottom: .1rem solid rgba(0, 0, 0, .2);
+}
+
+.logo{
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-weight: 600;
+    cursor: default;
+}
+
+.navbar a{
+    font-size: 1.7rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    transition: .3s;
+}
+
+.navbar a:hover {
+    color: var(--main-color);
+}
+
+.navbar a:hover, 
+.navbar .active{
+  color: var(--main-color);
+}
+
+#menu-icon{
+    font-size: 3.6rem;
+    color: var(--text-color);
+    display: none;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.home-img img{
+    width: 35vw;
+    animation: floatImage 4s ease-in-out infinite;
+   
+}
+
+@keyframes floatImage {
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-2.4rem);
+    }
+    100%{
+        transform: translateY(0);
+    }
+
+}
+
+.home-content h3{
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+
+.home-content h3:nth-of-type(2){
+    margin-bottom: 2rem;
+}
+
+span{
+    color: var(--main-color);
+}
+
+.home-content h1{
+    font-size: 5.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.home-content p{
+    font-size: 1.6rem;
+}
+
+.social-media a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    border: .2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--main-color);
+    margin: 3rem 1.5rem 3rem 0px;
+    transition: .5s ease;
+}
+
+.social-media a:hover{
+    background: var(--main-color);
+    color: var(--second-bg-color);
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);
+    border-radius: 4rem;
+    box-shadow: 0 0 1rem var(--main-color);
+    font-size: 1.6rem;
+    color: var(--second-bg-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
+    transition: .5s ease;
+}
+
+#show {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);
+    border-radius: 4rem;
+    box-shadow: 0 0 1rem var(--main-color);
+    font-size: 1.6rem;
+    color: var(--second-bg-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
+    transition: .5s ease;
+}
+
+.btn:hover {
+    box-shadow: none;
+}
+
+#show:hover {
+    box-shadow: none;
+}
+
+/* hidden starts */
+
+.close-modal {
+    position: absolute;
+    top: 1.2rem;
+    right: 2rem;
+    font-size: 5rem;
+    color: var(--text-color);
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  p {
+    font-size: 1.8rem;
+  }
+  
+  /* -------------------------- */
+  /* CLASSES TO MAKE MODAL WORK */
+  .hidden {
+    display: none;
+  }
+  
+  .modal {
+    color: var(--text-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  
+    background-color: var(--second-bg-color);
+    padding: 6rem;
+    border-radius: 5px;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+  }
+
+/* hidden ends */
+
+
+/* About  started*/
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background: var(--second-bg-color);
+    height: 100vh;
+}
+
+.about-img img {
+    width: 35vw;
+}
+
+.heading {
+    text-align: center;
+    font-size: 4.5rem;
+}
+
+.about-content h2{
+    text-align: left;
+    line-height: 1.2;
+}
+
+.about-content h3{
+    font-size: 2.6rem;
+}
+
+.about-content p{
+    font-size: 1.6rem;
+    margin: 2rem 0 3rem;
+}
+
+/* About  started ended*/
+
+/* Skill started*/
+
+.skills {
+    height: 100vh;
+}
+
+.skills_main{
+    margin-top: 50px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 50px;
+    grid-column-gap: 50px;
+}
+
+.skills_main .skill_bar .info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:  0 10px;
+}
+
+/* .skill_bar .info p:nth-child(2){
+    font-weight: 500;
+} */
+
+.skill_bar .bar{
+    width: 100%;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.144);
+    border-radius: 25px;
+    margin-top: 5px;
+    position: relative;
+}
+.skill_bar .bar span{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    background-color: #0ef;
+    border-radius: 25px;
+}
+
+.info p{
+    font-size: 18px;
+}
+
+.skill_bar .bar .java{
+    width: 80%;
+    animation: java 2s;
+}
+@keyframes java {
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 90%;
+    }
+}
+.skill_bar .bar .sql{
+    width: 70%;
+    animation: sql 2s;
+}
+@keyframes sql {
+    0%{
+        width: 0%;
+    }100%{
+        width: 70%;
+    }
+}
+.skill_bar .bar .html{
+    width: 70%;
+    animation: html 2s;
+}
+@keyframes html {
+    0%{
+        width: 0%;
+    }100%{
+        width: 70%;
+    }
+}
+.skill_bar .bar .js{
+    width: 60%;
+    animation: js 2s;
+}
+@keyframes js {
+    0%{
+        width: 0%;
+    }100%{
+        width: 60%;
+    }
+}
+.skill_bar .bar .react{
+    width: 40%;
+    animation: react 2s;
+}
+@keyframes react {
+    0%{
+        width: 0%;
+    }100%{
+        width: 40%;
+    }
+}
+.skill_bar .bar .css{
+    width: 70%;
+    animation: css 2s;
+}
+@keyframes css {
+    0%{
+        width: 0%;
+    }100%{
+        width: 70%;
+    }
+}
+.skill_bar .bar .jdbc{
+    width: 60%;
+    animation: jdbc 2s;
+}
+@keyframes jdbc {
+    0%{
+        width: 0%;
+    }100%{
+        width: 60%;
+    }
+}
+.skill_bar .bar .servlet{
+    width: 60%;
+    animation: servlet 2s;
+}
+@keyframes servlet {
+    0%{
+        width: 0%;
+    }100%{
+        width: 60%;
+    }
+}
+.skill_bar .bar .hibernate{
+    width: 70%;
+    animation: hibernate 2s;
+}
+@keyframes hibernate {
+    0%{
+        width: 0%;
+    }100%{
+        width: 70%;
+    }
+}
+.skill_bar .bar .springboot{
+    width: 70%;
+    animation: springboot 2s;
+}
+@keyframes springboot {
+    0%{
+        width: 0%;
+    }100%{
+        width: 70%;
+    }
+}
+
+/* Skill ended*/
+
+/* Projects started*/
+.projects {
+   background: var(--second-bg-color); 
+   height: 100vh;
+}
+
+.projects h2{
+    margin-bottom: 4rem;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.projects-container .projects-box{
+    position: relative;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem var(--bg-color);
+    overflow: hidden;
+    display: flex;  
+}
+
+.projects-box img{
+    width: 100%;
+    transition: .5s ease;
+    /* opacity: 0.5; */
+}
+
+.projects-box:hover img{
+    transform: scale(1.1);
+    filter: blur(5px);
+}
+
+.projects-box .project-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(4, 4, 4, 0.1), rgb(82, 149, 176));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 4rem;
+    transform: translateY(100%);
+    transition: .5s ease;
+}
+
+.projects-box:hover .project-layer {
+    transform: translateY(0);
+}
+
+.project-layer h4{
+    font-size: 3rem;
+    color: black;
+}
+
+.project-layer p {
+    font-size: 1.6rem;
+    margin: .3rem 0 1rem;
+    color: black;
+    font-weight: bold;
+    text-align: justify;
+}
+
+.project-layer a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    background: var(--text-color);
+    border-radius: 50%;
+}
+
+.project-layer a i {
+    font-size: 2rem;
+    color: var(--second-bg-color);
+}
+/* Projects ended*/
+
+/* Contact Started*/
+
+.contact{
+    margin-bottom: 3rem;
+}
+.media{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    align-items: center;
+    gap: 9.5rem;
+}
+
+.media a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 14rem;
+    height: 14rem;
+    background: transparent;
+    border: .2rem solid var(--main-color);
+    border-radius: 20px;
+    font-size: 6rem;
+    color: var(--main-color);
+    margin: 13rem 8.5rem 13rem 0rem;
+    transition: .5s ease;
+}
+
+.media a:hover{
+    background: var(--main-color);
+    color: var(--second-bg-color);
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+/* Contact ended*/
+
+/* footer started */
+
+.footer {
+    margin-top: -5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 9%;
+    background-color: var(--second-bg-color);
+}
+
+.footer-text {
+    font-size: 1.6rem;
+}
+
+.footer-iconTop a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem;
+    background: var(--main-color);
+    border-radius: .8rem;
+    transition: .5s ease;
+}
+
+.footer-iconTop a i {
+    font-size: 2.4rem;
+    color: var(--second-bg-color);
+}
+
+.footer-iconTop a:hover {
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+
+
+/* footer ended */
+
+
+
+/* BreakPoints */
+
+@media (max-width: 1200px){
+    html {
+        font-size: 55%;
+    }
+}
+
+
+@media (max-width: 991px){
+    .header {
+        padding: 2rem 3%;
+    }
+
+    section {
+        padding: 10rem 3% 2rem;
+       
+    }
+
+    .footer {
+        padding: 2rem 3%;
+    }
+
+    .skills {
+        padding-bottom: 7rem;
+    }
+
+    .projects {
+        padding-bottom: 7rem;
+    }
+
+    .contact {
+        min-height: auto;
+    }
+    
+}
+
+@media (max-width: 768px){
+    #menu-icon {
+        position: absolute;
+        display: block;
+        margin-left: 73%;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 3%;
+        background: var(--bg-color);
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0.5rem 1rem rgba(0, 0, 0, .2);
+        display: none;
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    .home {
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+
+    .home-content h3 {
+        font-size: 3.6rem;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+    }
+
+    .home-img img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+
+    .about {
+        flex-direction: column-reverse;
+        height: 100%;
+        width: 100%;
+    }
+
+    .about img {
+        width: 70vw;
+        margin-bottom: 4rem;
+    }
+
+    .skills {
+        height: 100%;
+        width: 100%;
+    }
+
+    .skills_main{
+        grid-template-columns: none; 
+        font-size: large;
+        width: 20%;
+    }
+    
+    .p2{
+        position: absolute;
+        margin-left: 50%;
+    }
+
+    .skills h2 {
+        margin-bottom: 3rem;
+    }
+
+    .projects {
+        height: 100%;
+        width: 100%;
+        
+    }
+
+    .projects h2 {
+        margin-bottom: 3rem;
+    }
+
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact{
+        height: 100%;
+        width: 100%;
+    }
+    .skills_main{
+        padding: 0 10rem;
+        width: 90%;
+    }
+}
+
+@media (max-width: 617px) {
+    .projects-container {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+    .skills_main{
+        padding: 0 10rem;
+        width: 100%;
+    }
+    .media{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        align-items: center;
+        gap: 1.5rem;
+        margin-left: 10%;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .home{
+        height: 100%;
+        width: 100%;
+    }
+
+    .about {
+        height: 100%;
+        width: 100%;
+    }
+
+    .skills {
+        height: 100%;
+        width: 100%;
+    }
+
+    .projects{
+        height: 100%;
+        width: 100%;
+    }
+
+    .contact{
+        height: 100%;
+        width: 100%;
+    }
+    .media{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        align-items: center;
+        gap: 1.5rem;
+        margin-left: 10%;
+    }
+
+    html {
+        font-size: 50%;
+    }
+    .skills_main{
+        padding: 0 6rem;
+        width: 95%;
+    }
+
+    .contact form .input-box input {
+        width: 100%;
+    }
+   
+}
+
+@media (max-width: 365px) {
+    .home-img img {
+        width: 90vw; 
+    }
+
+    .about-img img {
+        width: 90vw;
+    }
+    
+}
+    </style>
+</head>
+<body>
+
+<!-- header design -->
+    <header class="header">
+        <a href="#" class="logo">Portfolio</a>
+
+        <i class='bx bx-menu' id="menu-icon"></i>
+
+        <nav class="navbar">
+             <a href="#home">Home</a>
+             <a href="#about">About</a>
+             <a href="#skills">Skills</a>
+             <a href="#projects">Projects</a>
+             <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+<!-- header design ended -->
+
+<!-- Home section design -->
+      
+<section class="home" id="home">
+    <div class="home-content">
+         <h3 class="top1">Hello, It's Me</h3>
+<!-- change ur name here  -->
+         <h1>Anuvalu Mohan Sai</h1>
+         <h3>And I'm a <span class="multiple-text"></span></h3>
+         <p>Immediate Joiner | Full Stack java Developer Fresher | Tech enthusiastic| Passionate About Learning.</p>
+         <div class="social-media">
+<!-- change to your whatsapp number -->
+           <a href="https://wa.me/918328465820" style="--i:7" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+
+<!-- change to your email compose -->
+           <a href="mailto: mohansaia039@gmail.com" style="--i:8" target="_blank"><i class="bx bxl-gmail"></i></a>
+
+<!-- change to your github link -->
+           <a href="https://github.com/MohansaiAnuval" style="--i:9" target="_blank"><i class="bx bxl-github"></i></a>
+
+<!-- change to your linkedin link -->
+           <a href="https://www.linkedin.com/in/mohansaianuvalu?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B1Kq%2Fz2WfRTuKu0M9T0AxDQ%3D%3D" style="--i:10" target="_blank"><i class="bx bxl-linkedin"></i></a>
+         </div>
+         <a href="pdf\A MOHAN SAI .pdf" class="btn" target="_blank">Download CV</a>
+    </div>
+
+    <div class="home-img">
+       <img style="height: 550px; width: 480px; border-radius: 100px; " src="images\Mohan's DP.jpg" alt="No image found">
+    </div>
+</section>
+<!-- Home section design ended -->
+
+<!-- About section design -->
+
+         <section class="about" id="about">
+            <div class="about-img">
+                <img style="height: 420px; width: 320px; border-radius: 90px;" src="images\dp.jpg" alt="No image found">
+            </div>
+
+            <div class="about-content">
+                <h2 class="heading">About <span>Me</span></h2>
+                <h3>FullStack Java Developer</h3>
+                <p>A highly motivated and enthusiastic graduate with a passion for technology. 
+                  Proficient in various programming languages including Java. Demonstrated ability to solve 
+                  complex problems and work in team environments through various university projects and 
+                  internships. Seeking an entry-level position in the IT sector to leverage my technical skills and 
+                  creativity to contribute to innovative solutions while continuously learning and growing 
+                  professionally.</p>
+                <button id="show" class="show-modal">Read More</button>
+
+                <!-- hidden start -->
+                 
+                <div class="modal hidden">
+                    <button class="close-modal">&times;</button>
+                    <h1>I'm <span>Anuvalu Mohan Sai</span> </h1>
+                    <p>
+                        Strong in design and integration with intuitive problem-solving skills.
+                        Passionate about implementing and launching new projects. Ability to
+                        translate business requirements into technical solutions. Looking to
+                        start the career as an entry-level software engineer with a reputed
+                        firm driven by technology.
+                    </p>
+                    <p>
+                        I am a software developer with a passion for creating innovative solutions and delivering quality software products. 
+                        I have a strong background in software engineering and development, with experience in developing web, mobile, and desktop applications. 
+                        I am highly experienced in object-oriented programming languages Java, as well as front-end technologies, including HTML, CSS, and JavaScript. 
+                        I am experienced in working with databases such as SQL Server, MySQL. I am also familiar with version control systems such as Git ,Subversion and also knew about creating Endpoints and REST API's.
+                        I am a quick learner and thrive in a fast-paced and dynamic environment. I am always eager to learn new technologies.
+                    </p>
+                    
+                  </div>
+                  <div class="overlay hidden"></div>
+
+                <!-- hidden end -->
+            </div>
+         </section>
+
+<!-- About section design ended -->
+
+<!-- Skills section design -->
+         <section class="skills" id="skills">
+             <h2 class="heading">My <span>Skills</span></h2>
+     <!-- skills -->
+                
+             <div class="skills_main">
+               
+                <div class="skill_bar">
+                    <div class="info">
+                        <p>Java</p>
+                        <P class="p2">75%</P>
+                    </div>
+                    <div class="bar">
+                        <span class="java"></span>
+                    </div>
+                </div>
+               
+                <div class="skill_bar">
+                    <div class="info">
+                        <p>SQL</p>
+                        <P class="p2">70%</P>
+                    </div>
+                    <div class="bar">
+                        <span class="sql"></span>
+                    </div>
+                </div>
+               
+                <div class="skill_bar">
+                    <div class="info">
+                        <p>HTML5</p>
+                        <P class="p2">70%</P>
+                    </div>
+                    <div class="bar">
+                        <span class="html"></span>
+                    </div>
+                </div>
+               
+                <div class="skill_bar">
+                    <div class="info">
+                        <p>JavaScript</p>
+                        <P class="p2">60%</P>
+                    </div>
+                    <div class="bar">
+                        <span class="js"></span>
+                    </div>
+                </div>
+               
+                <div class="skill_bar">
+                    <div class="info">
+                        <p>ReactJs</p>
+                        <P class="p2">55%</P>
+                    </div>
+                    <div class="bar">
+                        <span class="react"></span>
+                    </div>
+                </div>
+               
+                <div class="skill_bar">
+                    <div class="info">
+                        <p>CSS</p>
+                        <P class="p2">60%</P>
+                    </div>
+                    <div class="bar">
+                        <span class="css"></span>
+                    </div>
+                </div>
+               
+                <div class="skill_bar">
+                    <div class="info">
+                        <p>JDBC</p>
+                        <P class="p2">60%</P>
+                    </div>
+                    <div class="bar">
+                        <span class="jdbc"></span>
+                    </div>
+                </div>
+               
+                <div class="skill_bar">
+                    <div class="info">
+                        <p>Servlet</p>
+                        <P class="p2">60%</P>
+                    </div>
+                    <div class="bar">
+                        <span class="servlet"></span>
+                    </div>
+                </div>
+                <div class="skill_bar">
+                    <div class="info">
+                        <p>Web Flow</p>
+                        <P class="p2">45%</P>
+                    </div>
+                    <div class="bar">
+                        <span class="servlet"></span>
+                    </div>
+                </div>
+               
+            </div>
+            
+      <!-- skills end -->
+         </section>
+<!-- Skills section design ended -->
+
+<!-- Projects section design -->
+
+<section class="projects" id="projects">
+    <h2 class="heading">Lastest <span>Projects</span></h2>
+<!-- first -->
+    <div class="projects-container">
+        <div class="projects-box">
+            <img height="400px" width="750px" src="images\Todo List app img.png" alt="No image found"> 
+            <div class="project-layer">
+                <h4>TodoList App </h4>
+                <p>
+                  A top-notch to-do list app lets users meticulously plan their tasks, slotting them into specific times. With easy-to-use features, users can shuffle tasks around effortlessly and delete them once done.</p>
+                <a href="https://github.com/MohansaiAnuval/Todo_List-Project" target="_blank"><i class='bx bx-link-external'></i></a>
+            </div>
+        </div>
+
+<!-- second --> 
+        <div class="projects-box">
+            <img height="400px" width="650px" src="images/User login and Registraion page img.jpg" alt="No image found">
+            <div class="project-layer">
+                <h4>User Login Page and User Registraction Page using Servlet</h4>
+                <p>This project uses Java,servlet,JSP,Mysql,JDBC for basic CRUD Operations</p>
+                <a href="https://github.com/MohansaiAnuval/Projects-Servlet" target="_blank"><i class='bx bx-link-external'></i></a>
+            </div>
+        </div>
+<!-- third -->
+        <div class="projects-box">
+            <img height="400px" width="600px" src="images/Porfolio project .jpg" alt="No image found">
+            <div class="project-layer">
+                <h4>Mini Project using HTML | CSS | JAVASCRIPT | ReactJS </h4>
+                <p>Bharath Clock | Calculator | Counter | Dice Roller | Gallery | Random Password Generator | Temperature converter | Items Reminder </p>
+                <p>This Project is uses React JS, Vite, Boostrap, Html ,Css
+                </p>
+                <a href="https://github.com/MohansaiAnuval/React_Mini_Projects" target="_blank"><i class='bx bx-link-external'></i></a>
+            </div>
+        </div>
+    </div>
+ </section>
+
+<!-- Projects section design ended -->
+
+<!-- Contact section design -->
+
+<section class="contact" id="contact">
+       <h2 class="heading" id="one">Contact <span>Me</span></h2>
+
+       <div class="media">
+        <!-- change to your whatsapp number -->
+                   <a href="https://wa.me/918328465820" style="--i:7" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+        
+        <!-- change to your email compose -->
+                   <a href="mailto: mohansaia039@gmail.com" style="--i:8" target="_blank"><i class="bx bxl-gmail"></i></a>
+        
+        <!-- change to your github link -->
+                   <a href="https://github.com/MohansaiAnuval" style="--i:9" target="_blank"><i class="bx bxl-github"></i></a>
+        
+        <!-- change to your linkedin link -->
+                   <a href="https://www.linkedin.com/in/mohansaianuvalu?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B1Kq%2Fz2WfRTuKu0M9T0AxDQ%3D%3D" style="--i:10" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                 </div>
+       
+</section>
+<!-- Contact section design ended -->
+
+<!-- footer design -->
+
+<footer class="footer">
+    <div class="footer-text">
+    </div>
+
+    <div class="footer-iconTop">
+         <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
+    </div>
+</footer>
+
+<!-- footer design end-->
+
+<!-- scroll reveal -->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<!-- change js -->
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<!-- custom script -->
+<!-- <script src="script.js"></script> -->
+<script>
+  // toggle icon navbar
+
+let menuIcon = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
+
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+};
+
+// scroll sections active links
+
+let sections = document.querySelectorAll('section');
+let navLinks = document.querySelectorAll('header nav a');
+
+window.onscroll = () => {
+    sections.forEach(sec => {
+         let top = window.scrollY;
+         let offset = sec.offsetTop - 150;
+         let height = sec.offsetHeight;
+         let id = sec.getAttribute('id');
+
+         if(top >= offset && top < offset + height) {
+             navLinks.forEach(links => {
+                links.classList.remove('active');
+                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+             });
+         };
+    });
+     // sticky navbar
+
+     let header = document.querySelector('header');
+     header.classList.toggle('sticky', window.scrollY > 100);
+
+    //  remove toggle
+
+    menuIcon.classList.remove('bx-x');
+    navbar.classList.remove('active');
+};
+
+// scroll reveal
+
+ScrollReveal({
+  // reset: true,
+   distance: '80px',
+   duration: 2000,
+   delay: 200
+});
+
+ScrollReveal().reveal('.home-content, .heading', {origin: 'top'});
+ScrollReveal().reveal('.home-img, .skills-container, .projects-box, .contact form', {origin: 'bottom'});
+ScrollReveal().reveal('.home-content h1, .about-img', {origin: 'left'});
+ScrollReveal().reveal('.home-content p, .about-content', {origin: 'right'});
+
+// change js
+
+var typed = new Typed(".multiple-text", {
+    strings:["Fullstack Java Developer","Frontend Developer", "Backend Developer"],
+    typeSpeed: 100,
+    backSpeed: 100,
+    backDelay: 1000,
+    loop: true
+}) 
+
+// hidden starts
+
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnCloseModal = document.querySelector('.close-modal');
+const btnsOpenModal = document.querySelectorAll('.show-modal');
+
+const openModal = function () {
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+};
+
+const closeModal = function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
+
+for (let i = 0; i < btnsOpenModal.length; i++)
+  btnsOpenModal[i].addEventListener('click', openModal);
+
+btnCloseModal.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', function (e) {
+  // console.log(e.key);
+
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});
+</script>
+
+</body>
+</html>

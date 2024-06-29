@@ -1,0 +1,27 @@
+#display{
+  text-align: center;
+  font-size: 10em;
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#button-container{
+ text-align: center;
+}
+.buttons{
+  font-size: 3em;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  border-radius: 4px;
+  background-color: rgb(97, 166, 226);
+  padding: 10px 15px; 
+  color: aliceblue;
+  transition:background-color .24s;
+  border: none;
+  box-shadow: 2px 2px 5px black;
+  margin: 10px;
+}
+
+#buttons:hover{
+  background-color: rgb(21, 134, 234);
+}
+
